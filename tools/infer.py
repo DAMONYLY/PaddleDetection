@@ -49,7 +49,7 @@ def parse_args():
     parser.add_argument(
         "--infer_img",
         type=str,
-        default=None,
+        default='demo/000000014439.jpg',
         help="Image path, has higher priority over --infer_dir")
     parser.add_argument(
         "--output_dir",
@@ -174,4 +174,12 @@ def main():
 
 
 if __name__ == '__main__':
+    import sys 
+    sys.argv = ['tools/infer.py',
+                '-c', 'configs/ppyolo/ppyolo_r50vd_dcn_1x_coco.yml',
+                '-o', 
+                'use_gpu=true', 
+                'weights=https://paddledet.bj.bcebos.com/models/ppyolo_r50vd_dcn_1x_coco.pdparams',
+                '--infer_img=demo/000000014439.jpg'
+                ]
     main()
